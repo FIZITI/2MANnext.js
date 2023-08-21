@@ -2,26 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
 
-@media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --main-blue-color: #5468E7;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  html {
+    @apply scroll-smooth scroll-pt-14 overflow-x-hidden;
+  }
+
+  .active-link {
+    @apply text-[var(--main-blue-color)];
+  }
+
+  .hover-menu-link {
+    @apply hover:text-[var(--main-blue-color)] ease-in duration-100;
+  }
+
+  .ul-menu li {
+    @apply font-bold text-xs;
+  }
+
+  .hidden-service-block {
+    @apply opacity-30;
+  }
+
+  .service-block {
+    @apply flex justify-center bg-[#F5F5F5] rounded-[20px] w-[232px] h-[210px];
+  }
+
+  .active-service-block {
+    @apply bg-[var(--main-blue-color)] text-white;
+  }
+
+  .hover-service-block {
+    @apply hover:bg-[var(--main-blue-color)] hover:text-white ease-in duration-300;
+  }
+
+  .mr-service {
+    @apply mr-[10px];
+  }
+
+  .ml-even-team {
+    @apply even:ml-[-90px];
+  }
+
+  .form-email {
+    @apply bg-[#33374E];
+  }
+
+  .form-email {
+    @apply focus:border-none;
+  }
+
+  @layer utilities {
+    .card-animation:hover {
+      box-shadow: 7px 7px 3px #53ea93;
+      transform: translateY(-7px);
+      transition: 0.3s;
+    }
+  }
+
+  .card-rotate {
+    @apply hover:transition-transform hover:transform-gpu;
+  }
+
+  @layer utilities {
+    .finger-click-animation {
+      animation: rotateAnimation 2s infinite alternate;
+    }
+  }
+
+  @keyframes rotateAnimation {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+
+  @layer utilities {
+    .portfolio:hover {
+      transform: translateY(-10px);
+      transition: 0.3s;
+    }
+  }
+
+  .burger-link {
+    @apply flex items-center justify-between h-[57px] w-full text-[21px];
+  }
+
+  .burger-border li {
+    @apply border-b-[0.5px] border-solid border-[#EBEBEB];
+  }
+
+  h2 {
+    @apply font-medium text-[32px];
+  }
+
+  .padding-content > section,.padding-content > div {
+    @apply pl-[20px] pr-[20px];
+  }
+
+  .low-padding-content > section,.low-padding-content > div {
+    @apply pl-[10px] pr-[10px];
+  }
+
+  .service-block-adaptiv {
+    @apply lsm:h-[230px];
+  }
+
+  .service-content-h {
+    @apply  sm:text-[28px];
+  }
+
+  .service-content-p {
+    @apply sm:text-[20px];
+  }
 }
